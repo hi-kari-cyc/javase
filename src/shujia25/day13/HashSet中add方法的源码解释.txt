@@ -1,0 +1,110 @@
+HashSet和LinkedHashSet是基于哈希表的Set实现，它们使用哈希表来存储元素，并提供了常数时间复杂度的插入、删除和查找操作
+
+1、计算得到的哈希值，作为对象在哈希表中的索引或存储位置
+2、实现HashSet的插入操作，根据键的哈希值确定存储位置，并处理哈希碰撞情况。通过链表或红黑树的方式，实现了高效的键值对存储和查找。
+
+
+class HashSet{
+
+    private static final Object PRESENT = new Object();
+
+    public HashSet() {
+        map = new HashMap<>();
+    }
+
+    public boolean add(Teacher e) {
+        // (键)e -- t1 -- new Teacher("小虎", 18)
+        // (值)PRESENT -- new Object();
+        return map.put(e, PRESENT)==null;
+    }
+}
+
+/*
+    HashSet类解释：
+        这里的 HashSet 是通过一个 HashMap 实例来实现的。它使用 HashMap 的键存储 HashSet 中的元素，
+        而值则统一为 PRESENT（一个 Object 实例），因为在 HashSet 中我们只关注键，而不关注值。
+        在 HashSet 的 add 方法中，我们使用 map.put(e, PRESENT) 将元素 e 作为键添加到 HashMap 中。如果这个键在 HashMap 中不存在，
+        put 方法将返回 null，然后 add 方法返回 true；如果这个键已经存在，put 方法将返回之前与该键相关联的值，然后 add 方法返回 false。
+*/
+
+
+
+class HashMap{
+
+    // 哈希函数的实现
+    static final int hash(Object key) {
+        int h;
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+    }
+
+    public V put(K key, V value) {
+        // hash(key) 就是计算出该对象的哈希值是一个int类型的值
+        // key -- t1 -- new Teacher("小虎", 18)
+        // value -- new Object()
+        //
+        return putVal(hash(key), key, value, false, true);
+    }
+
+    // 展示了在哈希表中插入键值对的逻辑，可以说是哈希表的实现代码。
+    final V putVal(int hash, K key, V value, boolean onlyIfAbsent, boolean evict) {
+
+        // hash:哈希函数的实现，计算出给定对象的哈希值
+        // key:--t1--new Teacher("小虎", 18)
+        // onlyIfAbsent:false
+        // evict:true
+
+        Node<K,V>[] tab;
+        Node<K,V> p;
+        int n;
+        int i;
+
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            tab[i] = newNode(hash, key, value, null);
+        else {
+            Node<K,V> e;
+            K k;
+
+            // 判断目标元素和已存在哈希表中的元素是不是同一个元素（比较哈希值和内容是不是一样）
+            if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
+                e = p;
+            else if (p instanceof TreeNode)
+                e = ((TreeNode<K,V>)p).putTreeVal(this, tab, hash, key, value);
+            else {
+                for (int binCount = 0; ; ++binCount) {
+                    if ((e = p.next) == null) {
+                        p.next = newNode(hash, key, value, null);
+                        if (binCount >= TREEIFY_THRESHOLD - 1) // -1 for 1st
+                            treeifyBin(tab, hash);
+                        break;
+                    }
+                    if (e.hash == hash &&
+                        ((k = e.key) == key || (key != null && key.equals(k))))
+                        break;
+                    p = e;
+                }
+            }
+            if (e != null) { // existing mapping for key
+                V oldValue = e.value;
+                if (!onlyIfAbsent || oldValue == null)
+                    e.value = value;
+                afterNodeAccess(e);
+                return oldValue;
+            }
+        }
+        ++modCount;
+        if (++size > threshold)
+            resize();
+        afterNodeInsertion(evict);
+        return null;
+    }
+}
+/*
+HashMap类解释：
+    在 HashMap 的代码中，我们可以看到 hash 方法用于计算键的哈希值。它将键的哈希码进行一些位操作，以保证哈希值的均匀分布。
+    put 方法是向 HashMap 中插入键值对的公共接口。它使用 hash(key) 方法计算键的哈希值，并调用 putVal 方法进行具体的插入操作。
+    putVal 方法则是展示了在哈希表中插入键值对的逻辑。它通过计算哈希值和位运算找到插入的位置，然后根据键的哈希值和内容进行比较，
+    判断是更新已存在的键值对还是在链表的末尾插入新的节点。如果链表的长度达到一定阈值，则将链表转换为红黑树以提高性能。
+    最后，更新了哈希表的修改计数和元素数量，以及根据需要调整哈希表的大小。
+*/

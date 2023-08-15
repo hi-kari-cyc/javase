@@ -1,0 +1,126 @@
+TreeSet<Integer> set = new TreeSet<>();
+set.add(12);
+set.add(14);
+set.add(2);
+set.add(17);
+set.add(25);
+set.add(15);
+set.add(12);
+
+new TreeSet<>()--->无参构造方法（new TreeMap） ---> 有参构造方法（m = new TreeMap）-->TreeMap中的无参构造方法 --> TreeMap中的put方法
+
+
+class TreeSet{
+    private transient NavigableMap<E,Object> m;  // m = TreeMap
+    private static final Object PRESENT = new Object();
+
+    // 无参构造方法
+    public TreeSet() {
+        this(new TreeMap<E,Object>());
+    }
+
+    // 有参构造方法
+    Comparator是个接口
+    public TreeSet(Comparator<? super E> comparator) {
+            this(new TreeMap<>(comparator));
+        }
+
+    TreeSet(NavigableMap<E,Object> m) {
+        this.m = m;
+    }
+
+    public boolean add(Integer e) {
+        // e -- 14
+        // PRESENT -- new Object()
+        return m.put(e, PRESENT)==null;
+    }
+}
+/*
+    class TreeSet类解释：
+        TreeSet 类基于 NavigableMap 接口实现，其中 NavigableMap 是一个可导航的有序映射接口。
+        在 TreeSet 的构造函数中，它创建一个 TreeMap 实例，并使用该实例作为底层数据结构存储元素。
+        在 add 方法中，TreeSet 调用底层 TreeMap 的 put 方法，将元素 e 作为键插入到 TreeMap 中。
+        由于 TreeMap 是基于红黑树实现的有序映射，元素将按照它们的自然顺序或自定义的比较器进行排序。
+
+*/
+
+class TreeMap{
+    // 不走比较器排序，走自然排序
+    public TreeMap() {
+        // 创建一个比较器，并赋空
+        comparator = null;
+    }
+
+    public V put(K key, V value) {
+        // key -- 14
+        // value -- new Object()
+
+        // 第一个if建立根节点(红黑树的根节点)
+        Entry<K,V> t = root;
+        if (t == null) {
+            compare(key, key); // type (and possibly null) check
+
+            root = new Entry<>(key, value, null);
+            size = 1;
+            modCount++;
+            return null;
+        }
+        int cmp;
+        Entry<K,V> parent;
+
+        // split comparator and comparable paths
+
+        Comparator<? super K> cpr = comparator; // cpr = null   (关键)
+
+        if (cpr != null) {      //比较器排序
+            do {
+                parent = t;
+                cmp = cpr.compare(key, t.key);   // key待插入的节点，t.key是已经在树中的节点
+                if (cmp < 0)
+                    t = t.left;
+                else if (cmp > 0)
+                    t = t.right;
+                else
+                    return t.setValue(value);
+            } while (t != null);
+        }
+        else {                           //自然排序
+            if (key == null)
+                throw new NullPointerException();
+            @SuppressWarnings("unchecked")
+                Comparable<? super K> k = (Comparable<? super K>) key;      //  向上转型 Integer实现了Comparable接口
+            do {
+                parent = t;
+
+                cmp = k.compareTo(t.key);           // compareTo是一个比较方法，用于比较两个对象的大小关系
+                                                    // 如果cmp < 0，表示k小于T节点的key，则继续向左子树搜索。
+                                                    // 如果cmp > 0，表示k大于T节点的key，则继续向右子树搜索。
+                                                    // 如果cmp = 0，表示k等于T节点的key，则返回当前节点T的值
+                if (cmp < 0)
+                    t = t.left;
+                else if (cmp > 0)
+                    t = t.right;
+                else
+                    return t.setValue(value);
+            } while (t != null);
+        }
+        Entry<K,V> e = new Entry<>(key, value, parent);
+        if (cmp < 0)
+            parent.left = e;
+        else
+            parent.right = e;
+        fixAfterInsertion(e);
+        size++;
+        modCount++;
+        return null;
+    }
+}
+/*
+        TreeMap类解释：
+            在 TreeMap 中，put 方法用于将键值对插入到红黑树中。如果红黑树为空，即根节点为 null，则直接创建一个新的根节点，并将键值对插入其中。
+            如果红黑树不为空，则根据键的比较结果，将键值对插入红黑树的适当位置。在插入过程中，根据比较结果选择向左子树或右子树移动，直到找到合适的位置。
+            如果键已经存在于树中，则更新对应节点的值。
+            在插入节点后，需要根据红黑树的规则进行调整，以保持树的平衡性。这个过程称为 "fixAfterInsertion"，它会根据节点的颜色和位置进行旋转和变色操作。
+            最后，更新了红黑树的大小和修改计数。
+
+*/
