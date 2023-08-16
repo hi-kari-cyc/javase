@@ -1,5 +1,7 @@
 package shujia25.day05;
 
+import java.util.Arrays;
+
 /*
     二维数组：元素是一维数组的数组
     语句定义格式一：
@@ -14,9 +16,13 @@ public class Array2Demo1 {
 //        int[][] arr = new int[3][4];
         int[][] arr = new int[3][4];
         System.out.println(arr);
+        System.out.println(Arrays.deepToString(arr));
         System.out.println(arr[0]);
+        System.out.println(Arrays.toString(arr[0]));
         System.out.println(arr[1]);
+        System.out.println(Arrays.toString(arr[1]));
         System.out.println(arr[2]);
+        System.out.println(Arrays.toString(arr[2]));
         //查看第二个一维数组的第3个元素值
         System.out.println(arr[1][2]);
 

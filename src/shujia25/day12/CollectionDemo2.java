@@ -17,19 +17,19 @@ import java.util.Collection;
 public class CollectionDemo2 {
     public static void main(String[] args) {
         // 创建集合
-        Collection c1 = new ArrayList();
+        ArrayList<Integer> c1 = new ArrayList<>();
 
         // 向c1集合中添加元素(以后一种集合最好只存一种类型.开发规范)
         c1.add(100);
         c1.add(200);
         c1.add(300);
 
-        Collection c2 = new ArrayList();
+        ArrayList<Integer> c2 = new ArrayList<>();
         c2.add(11);
         c2.add(22);
         c2.add(33);
 
-        Collection c3 = new ArrayList();
+        ArrayList<Integer> c3 = new ArrayList<>();
         c3.add(1000);
         c3.add(2000);
         c3.add(100);

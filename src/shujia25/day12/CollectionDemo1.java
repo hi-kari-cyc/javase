@@ -35,7 +35,7 @@ import java.util.Collection;
 
 public class CollectionDemo1 {
     public static void main(String[] args) {
-        Collection c1 = new ArrayList();   // 父类的引用指向子类对象（接口多态）
+        ArrayList c1 = new ArrayList();// 父类的引用指向子类对象（接口多态）
 
         // boolean add(E e)     向集合中添加元素
         c1.add(100);     // 里面做了自动装箱把int变成了Integer
