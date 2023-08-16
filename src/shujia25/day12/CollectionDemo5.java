@@ -37,7 +37,15 @@ public class CollectionDemo5 {
         while (iterator.hasNext()) {
             Object object = iterator.next();
             Student s = (Student) object;
-            System.out.println(s.getName()+": "+s.getAge());
+            System.out.println(s.getName() + ": " + s.getAge());
+        }
+
+        System.out.println("------------------------------");
+        // 方法3:
+        // 增强for循环遍历
+        for (Object o : c1) {
+            Student s = (Student) o;
+            System.out.println(s.getName() + ": " + s.getAge());
         }
     }
 }

@@ -45,17 +45,23 @@ class TreeSet{
 */
 
 class TreeMap{
+
     // 不走比较器排序，走自然排序
-    public TreeMap() {
+    public TreeMap() {     // 无参构造方法
         // 创建一个比较器，并赋空
         comparator = null;
     }
+    public TreeMap(Comparator<? super K> comparator) {   // 有参构造方法
+            this.comparator = comparator;
+        }
+
+    // 有参无参决定了comparator是否为空，决定了接下来走自然排序还是比较排序
 
     public V put(K key, V value) {
         // key -- 14
         // value -- new Object()
 
-        // 第一个if建立根节点(红黑树的根节点)
+        // 第一个if建立根节点(红黑树的根节点)  将第一个传进来的数当作根
         Entry<K,V> t = root;
         if (t == null) {
             compare(key, key); // type (and possibly null) check

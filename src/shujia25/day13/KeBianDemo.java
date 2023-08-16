@@ -29,26 +29,7 @@ public class KeBianDemo {
 
     }
 
-
-    public static void sumScore(String s, int... arr) {
-        int sum = 0;
-        for (int i : arr) {
-            sum += i;
-        }
-        System.out.println(s + "的总分为：" + sum);
-    }
-
-    //如果一个方法定义有可变参数，必须是最后一个定义，只能存在一个可变参数
-//    public static void sumScore0( int... arr,String s) {
-//        int sum = 0;
-//        for (int i : arr) {
-//            sum += i;
-//        }
-//        System.out.println(s + "的总分为：" + sum);
-//    }
-
-
-    public static void sum(int... arr) {      //接收多个int类型的实参，将这多个实参封装成一个数组，数组的名字叫做arr
+    public static void sum(int... arr) {      // 接收多个int类型的实参，将这多个实参封装成一个数组，数组的名字叫做arr
         int sum = 0;
         for (int i : arr) {
             sum += i;
@@ -67,5 +48,22 @@ public class KeBianDemo {
 //
 //    public static void sum(int a, int b, int c, int d) {
 //        System.out.println(a + b + c + d);
+//    }
+
+    public static void sumScore(String s, int... arr) {
+        int sum = 0;
+        for (int i : arr) {
+            sum += i;
+        }
+        System.out.println(s + "的总分为：" + sum);
+    }
+
+    //如果一个方法定义有可变参数，必须是最后一个定义，只能存在一个可变参数
+//    public static void sumScore0( int... arr,String s) {
+//        int sum = 0;
+//        for (int i : arr) {
+//            sum += i;
+//        }
+//        System.out.println(s + "的总分为：" + sum);
 //    }
 }

@@ -9,6 +9,7 @@ package shujia25.day13;
 
 public class FanXingDemo2{
     public static void main(String[] args) {
+        // 创建对象时指定具体的类型
         Demo<String> demo = new Demo<>();
         demo.fun("你好");
         // 泛型类被定义之后就只能传指定的类型
@@ -19,6 +20,11 @@ public class FanXingDemo2{
         demo2.fun(100);
         demo2.fun("100");
         demo2.fun(12.34);
+
+        Demo3<String> demo3 = new Demo3<>();
+        demo3.fun(100);
+        demo3.fun("100");    // 方法中的泛型和类上的泛型可以不一致
+        demo3.fun(false);
     }
 }
 
@@ -35,6 +41,12 @@ class Demo<E>{
 class Demo2{
     // 2、泛型方法 定义一个泛型方法，表示将来可以传入任意的引用数据类型
     public <T> void fun(T t){
+        System.out.println(t);
+    }
+}
+
+class Demo3<E>{
+    public <T> void fun(T t){      // 泛型类上的泛型不一定和泛型方法中的泛型一致
         System.out.println(t);
     }
 }

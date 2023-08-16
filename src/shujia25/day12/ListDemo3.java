@@ -55,7 +55,7 @@ public class ListDemo3 {
         // ListIterator listIterator()    列表迭代器，是List集合特有的迭代器
             // listIterator 不但能使用next()和hasnext()方法还有自己独特的方法
         ListIterator listIterator = list1.listIterator();
-        // public E previous()      获取前一个位置上的元素
+        // public E previous()              获取前一个位置上的元素
         // public boolean hasPrevious()     判断前一个位置上是否有元素
         // ListIterator不仅能正着遍历，还能倒着遍历
 

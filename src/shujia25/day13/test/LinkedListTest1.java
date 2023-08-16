@@ -8,24 +8,13 @@ import java.util.Objects;
 
     栈：先进后出
 
-    如果面试遇到这个题，写法一的解法是0分
+    题目的本意是自己定义一个类，底层是LinkedList，然后使用自己定义的这个类存储元素，调用自己的方法实现栈
 
-    题目的本意是自己定义一个类，底层是LinkedList，然后使用自己的类存储元素，调用自己的方法实现栈
+    以后遇见请用xxx技术实现xxx，自己写个类包装一下
 
  */
 public class LinkedListTest1 {
     public static void main(String[] args) {
-//        LinkedList list = new LinkedList();
-//
-//        list.add("hello");
-//        list.add("world");
-//        list.add("java");
-//        list.add("hadoop");
-//        list.add("hive");
-//
-//        for (int i = list.size() - 1; i >= 0; i--) {
-//            System.out.println(list.get(i));
-//        }
 
         // 创建自己的集合类底层是LinkedList
         MyStack myStack = new MyStack();
@@ -37,7 +26,8 @@ public class LinkedListTest1 {
         myStack.addYuanSu("hbase");
         myStack.addYuanSu("spark");
 
-        int s = myStack.getSize();
+        int s = myStack.getSize();    // getSize值如果定义在for循环里会一直在变
+                                      // 先保存下来getSize值就固定下来了
         for (int i = 0; i < s; i++) {
             System.out.println(myStack.chuZhan());
         }
@@ -45,10 +35,10 @@ public class LinkedListTest1 {
 }
 
 class MyStack {
-    private LinkedList linkedList;
+    private final LinkedList<Object> linkedList;
 
     public MyStack() {
-        linkedList = new LinkedList();
+        linkedList = new LinkedList<>();
     }
 
     public void addYuanSu(Object obj) {

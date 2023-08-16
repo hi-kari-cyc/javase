@@ -1,20 +1,20 @@
-CollectionDemo1
+CollectionDemo1         Collection介绍、Collection中的方法1
 
-CollectionDemo2
+CollectionDemo2         Collection中的方法2
 
-CollectionDemo3
+CollectionDemo3         Collection集合遍历的第一种方式：集合转成数组
 
-CollectionDemo4
+CollectionDemo4         Collection集合第二种遍历方式：迭代器遍历
 
-CollectionDemo5
+CollectionDemo5         集合中添加自定义对象
 
-ListDemo1
+ListDemo1               list集合介绍
 
-ListDemo2
+ListDemo2               List集合中自定义对象操作
 
-ListDemo3
+ListDemo3               List集合相关方法、特有的迭代器
 
-ListDemo4
+ListDemo4               ListIterator解决并发修改的异常
 
 栈
 

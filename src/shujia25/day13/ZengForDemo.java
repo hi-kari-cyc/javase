@@ -13,7 +13,7 @@ package shujia25.day13;
                 System.out.println(i);
             }
         解释：
-            增强for循环 从集合或者数组中一步一步的取出元素赋给变量,直接使用被赋值的变量即可
+            增强for循环 从集合或者数组中一个一个的取出元素赋给变量,直接使用被赋值的变量即可
  */
 
 import java.util.ArrayList;

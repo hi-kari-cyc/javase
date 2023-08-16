@@ -16,18 +16,18 @@ public class LinkedListTest2 {
         myQueue.enQueue(500);
         System.out.println(myQueue);
 
-        int g = myQueue.getSize();
-        for (int i = 0; i < g; i++) {
+        int size = myQueue.getSize();
+        for (int i = 0; i < size; i++) {
             System.out.println(myQueue.deQueue());
         }
     }
 }
 
 class MyQueue {
-    private LinkedList linkedList;
+    private final LinkedList<Object> linkedList;
 
     public MyQueue() {
-        linkedList = new LinkedList();
+        linkedList = new LinkedList<>();
     }
 
     public void enQueue(Object obj) {

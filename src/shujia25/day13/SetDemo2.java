@@ -14,6 +14,7 @@ public class SetDemo2 {
         Teacher t5 = new Teacher("小虎", 18);
 
         // HashSet中的add方法底层实际上调用的是HashMap中的put方法
+        // put()-->putVal()
         // 其中底层需要调用元素类型的HashCode方法计算出哈希值
         // 底层判断两个对象是否是同一个对象的话，会先计算两个对象的哈希值，当哈希值一样的时候，比较equals方法，如果equals方法是true表示是同一个
         // 否则不是同一个对象

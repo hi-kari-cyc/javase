@@ -34,7 +34,7 @@ class HashMap{
     // 哈希函数的实现
     static final int hash(Object key) {
         int h;
-        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);    // key(Teacher类的实现对象)调用了hashCode方法
     }
 
     public V put(K key, V value) {
@@ -61,12 +61,13 @@ class HashMap{
         if ((tab = table) == null || (n = tab.length) == 0)
             n = (tab = resize()).length;
         if ((p = tab[i = (n - 1) & hash]) == null)
-            tab[i] = newNode(hash, key, value, null);
+            tab[i] = newNode(hash, key, value, null);     // 如果是第一个元素，进来创建节点给第一个元素
         else {
             Node<K,V> e;
             K k;
 
             // 判断目标元素和已存在哈希表中的元素是不是同一个元素（比较哈希值和内容是不是一样）
+            // 比较待插入元素的hash值和原本在hash表中的元素是否一样，并且比较他们的内容是否一样(用equals比较的)
             if (p.hash == hash && ((k = p.key) == key || (key != null && key.equals(k))))
                 e = p;
             else if (p instanceof TreeNode)

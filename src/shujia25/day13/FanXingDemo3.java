@@ -25,6 +25,7 @@ public class FanXingDemo3 {
     public static void main(String[] args) {
 
 //        ArrayList<Animal> list = new ArrayList<Dog>();        不能直接给子类
+        // 标准写法
         ArrayList<? extends Animal> list0 = new ArrayList<>();  // 可以在集合中传入Animal及Animal的子类类型
         ArrayList<? extends Animal> list1 = new ArrayList<Dog>(); // 在Animal集合中传入Dog类型
         ArrayList<? extends Animal> list2 = new ArrayList<Cat>();
@@ -34,12 +35,13 @@ public class FanXingDemo3 {
         // addAll(Collection<? extends E> c)
         // 将来传入的是Collection相关集合并且<>中的类型是E或者E的子类，如：addALl(List<String> "s")
 
-
-        ArrayList<? super Animal> list5 = new ArrayList<Animal>();
-        ArrayList<? super Animal> list6 = new ArrayList<Object>();
-//        ArrayList<? super Animal> list7 = new ArrayList<Dog>();
+        // 标准写法
+        ArrayList<? super Animal> list5 = new ArrayList<>();   // 可以在集合中传入Animal及Animal的父类类型
+        ArrayList<? super Animal> list6 = new ArrayList<Animal>();
+        ArrayList<? super Animal> list7 = new ArrayList<Object>();
+//        ArrayList<? super Animal> list8 = new ArrayList<Dog>();
 
         // ?表示任意数据类型都可以
-        ArrayList<?> list8 = new ArrayList<>();
+        ArrayList<?> list9 = new ArrayList<>();
     }
 }

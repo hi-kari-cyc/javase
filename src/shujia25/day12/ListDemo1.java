@@ -25,5 +25,6 @@ public class ListDemo1 {
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
+
     }
 }
