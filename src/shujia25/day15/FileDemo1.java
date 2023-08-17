@@ -38,5 +38,7 @@ public class FileDemo1 {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH-mm-ss");
         String time = sdf.format(date);
         System.out.println(time);
+
+        System.out.println(new SimpleDateFormat("yyyy-MM-dd HH-mm-ss").format(new Date(file.lastModified())));
     }
 }

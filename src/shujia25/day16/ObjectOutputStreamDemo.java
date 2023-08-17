@@ -16,8 +16,8 @@ import java.io.ObjectOutputStream;
  */
 public class ObjectOutputStreamDemo {
     public static void main(String[] args) throws Exception{
-        write();
-        read();
+        write();    // 序列化流
+        read();     // 反序列化流
     }
 
     public static void write() throws Exception{
@@ -29,8 +29,6 @@ public class ObjectOutputStreamDemo {
         oos.writeObject(s1);   // NotSerializableException  java中只有实现了Serializable接口的类产生的对象才可以进行序列化
         // 序列化流先刷新
         oos.flush();
-
-
         // 释放资源
         oos.close();
     }

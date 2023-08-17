@@ -20,7 +20,7 @@ public class CopyFileDemo5 {
         String line;
         while ((line = br.readLine()) != null) {
             bw.write(line);
-            bw.newLine();
+            bw.newLine();     // readLine不会读换行符，写的时候要写换行符
         }
 
         bw.close();

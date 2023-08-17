@@ -32,7 +32,6 @@ class Windows3 implements Runnable {
     @Override
     public void run() {
         while (true) {
-
             if (i % 2 == 0) {
 //                this代表当前Windows3对象
                 synchronized (Windows3.class) {
@@ -41,7 +40,7 @@ class Windows3 implements Runnable {
                     if (tickets > 0) {
                         // 为了模拟真实是售票情况，加入休眠线程
                         try {
-                            Thread.sleep(50);
+                            Thread.sleep(100);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -49,7 +48,7 @@ class Windows3 implements Runnable {
                     }
                 }
             } else {
-                fun1();
+                fun();
             }
             i++;
         }
@@ -57,11 +56,11 @@ class Windows3 implements Runnable {
 
     // 同步方法
     // 被synchronized的方法是线程安全的，一个对象在用的时候另一个对象不能去用
-    public synchronized static void fun1() {
+    public synchronized static void fun() {
         if (tickets > 0) {
             // 为了模拟真实是售票情况，加入休眠线程
             try {
-                Thread.sleep(50);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

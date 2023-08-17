@@ -35,6 +35,7 @@ public class InputStreamDemo {
 //        System.out.println((char) fis.read());
 //        System.out.println((char) fis.read());
         //因为不确定文件字节数，就不确定调用多少次read方法，所以采用while循环来读取
+        // 数据的下一个字节，如果达到文件的末尾， -1 。
         int i = 0;
         while ((i = fis.read()) != -1) {
             System.out.print((char) i);
@@ -44,13 +45,12 @@ public class InputStreamDemo {
         // 创建一个新的数组，用于存储读取到的字节
         byte[] bytes = new byte[1024];
 //        int length = fis.read(bytes);       // 返回的是真正读取到的字节数
-        // 将字节数组转成字符串，因为读取到的字节存储在数组中
 //        String s = new String(bytes, 0, length);
 //        System.out.print(s);
 
-        int length = 0;
+        int length = 0;    // length记录读取的字节个数
         while ((length = fis.read(bytes)) != -1) {
-            String s = new String(bytes, 0, length);
+            String s = new String(bytes, 0, length);  // 将字节数组转成字符串，因为读取到的字节存储在数组中
             System.out.println(s);
         }
 

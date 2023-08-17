@@ -16,12 +16,12 @@ public class FileDemo1 {
         // public File(String pathname)
         // 路径：
         //   绝对路径（完整路径）：带有盘符的路径 D:\IDEA\JavaProject\java25\src\shujia25\day14\FileDemo1.java
-        //   相对路径：将项目作为根目录继续找路径 src//shujia25//day14//FileDemo1.java
+        //   相对路径：将项目作为根目录继续找路径 src/shujia25/day14/FileDemo1.java
 
         File file1 = new File("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day14\\FileDemo1.java");
         System.out.println(file1);
 
-        File file2 = new File("src//shujia25//day14//FileDemo1.java");
+        File file2 = new File("src/shujia25/day14/FileDemo1.java");
         System.out.println(file2);
 
         //public File(String parent,String child)

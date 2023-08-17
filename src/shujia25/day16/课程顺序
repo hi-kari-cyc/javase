@@ -1,21 +1,21 @@
-LoginDemo
+LoginDemo                   登录注册IO流版、配置文件
 
-ObjectOutputStreamDemo
+ObjectOutputStreamDemo      序列化流
 
 Student
 
 单线程伪代码
 
-ThreadDemo
+ThreadDemo                  实现多线程的方式1：继承Thread类
 
-SleepThreadDemo
+SleepThreadDemo             休眠线程
 
-JoinThreadDemo
+JoinThreadDemo              加入线程
 
-YieldThreadDemo
+YieldThreadDemo             礼让线程
 
-DaemonThreadDemo
+DaemonThreadDemo            后台线程(守护线程)
 
-StopThreadDemo
+StopThreadDemo              中断线程、打断线程
 
-RunnableDemo
+RunnableDemo                实现多线程的方式2：实现Runnable接口，实现run方法

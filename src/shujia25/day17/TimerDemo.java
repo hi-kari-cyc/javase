@@ -45,6 +45,6 @@ class MyTask extends TimerTask{
     public void run() {
         System.out.println("定时器结束！");
 
-//        timer.cancel(); // 终止此计时器，丢弃任何当前计划的任务
+        timer.cancel(); // 终止此计时器，丢弃任何当前计划的任务
     }
 }

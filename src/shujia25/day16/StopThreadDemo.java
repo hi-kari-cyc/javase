@@ -7,8 +7,8 @@ public class StopThreadDemo {
 
         try {
             Thread.sleep(1000);
-//            t1.stop();
-            t1.interrupt();
+//            t1.stop();            // stop停止run方法，后面不执行了
+            t1.interrupt();         // interrupt打断执行，会把run方法中的其他逻辑都执行完
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

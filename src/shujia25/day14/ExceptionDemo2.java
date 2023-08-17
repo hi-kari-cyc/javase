@@ -5,6 +5,10 @@ package shujia25.day14;
         try...catch..finally
         throws
 
+        在运行try中的代码的时候，如果遇到了问题， try中 的其他代码停止执行，直接去匹配对应的catch
+        如果匹配到了对应的catch，后面的代码继续执行，如果没有匹配到则会报官方错误并停止执行后续的代码
+        但finally中的代码无论是否出现异常都会执行，除非在执行到finally之前jvm退出了
+
     报红就是官方处理方案
  */
 

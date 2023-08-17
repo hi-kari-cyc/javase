@@ -14,9 +14,9 @@ public class FileDemo3 {
 
         // 获取目录下所有文件名组成的数组
         String[] list = file.list();
-        if (list!=null){
+        if (list != null) {
             for (String s : list) {
-                if (s.endsWith(".jpg")){
+                if (s.endsWith(".jpg")) {
                     System.out.println(s);
                 }
             }

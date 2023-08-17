@@ -22,7 +22,6 @@ public class JoinThreadDemo {
         }    // start之前调用
         t2.start();
         t3.start();
-
     }
 }
 

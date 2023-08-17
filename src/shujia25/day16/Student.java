@@ -17,7 +17,7 @@ import java.io.Serializable;
 public class Student implements Serializable {
     private static final long serialVersionUID = 7284118704208747782L;
     private String name;
-    private transient int age;
+    private transient int age;   // transient 不可被序列化
 
     public Student() {
     }

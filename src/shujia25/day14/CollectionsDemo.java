@@ -33,9 +33,12 @@ public class CollectionsDemo {
         Collections.sort(list);
         System.out.println(list);
 
-        // public static <T> int binarySearch(List<?> list,T key)  二分查找
+        // public static <T> int binarySearch(List<?> list,T key)  二分查找,如果存在返回索引，如果不存在返回 -(low+1)
         System.out.println(Collections.binarySearch(list,23));
         System.out.println(Collections.binarySearch(list,223));
+        System.out.println(Collections.binarySearch(list, 18));
+
+        System.out.println("====================================");
 
         // public static <T> T max(Collection<?> coll)  获取最大值
         System.out.println(Collections.max(list));

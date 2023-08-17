@@ -11,6 +11,7 @@ package shujia25.day14;
  */
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -43,5 +44,11 @@ public class MapDemo3 {
             System.out.println(key + " : " + value);
         }
         // Entry有两个方法getKey,getValue，分别获得每个键和值
+        System.out.println("------------------------------");
+
+        // 拓展一种遍历方式
+        map.forEach((key, value) -> {
+            System.out.println(key + " : " + value);
+        });
     }
 }

@@ -46,9 +46,9 @@ TreeSetDemo1        TreeSet介绍
 
 TreeSet中add方法的源码解释
 
-TreeSetDemo2
+TreeSetDemo2        TreeSet自然排序
 
-TreeSetDemo3
+TreeSetDemo3        TreeSet比较器排序
 
 SetTest1
 

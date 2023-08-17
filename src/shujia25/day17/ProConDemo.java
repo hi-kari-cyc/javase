@@ -27,7 +27,6 @@ public class ProConDemo {
 
         pt1.start();
         ct1.start();
-
     }
 }
 

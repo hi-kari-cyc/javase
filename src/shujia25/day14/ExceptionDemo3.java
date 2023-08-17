@@ -1,9 +1,9 @@
 package shujia25.day14;
 
 /*
-    final,finally和finalize的区别
-    如果catch里面有return语句，请问finally的代码还会执行吗? 会
-    如果会，请问是在return前还是return后。之间
+    1、final,finally和finalize的区别
+    2、如果catch里面有return语句，请问finally的代码还会执行吗? 会
+        如果会，请问是在return前还是return后。之间
  */
 
 public class ExceptionDemo3 {

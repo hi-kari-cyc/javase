@@ -40,7 +40,7 @@ public class SellTicketDemo2 {
     public static void main(String[] args) {
         Windows2 windows2 = new Windows2();
 
-        Thread t1 = new Thread(new Windows2());
+        Thread t1 = new Thread(windows2);
         t1.setName("窗口1");
         Thread t2 = new Thread(windows2);
         t2.setName("窗口2");
@@ -57,16 +57,16 @@ class Windows2 implements Runnable{
     // 这里的tickets不用加static，因为Windows只被创建一次，剩下的由Thread创建线程
     int tickets = 100;
 
-    Object object = new Object();
+    Object obj = new Object();
 
     @Override
     public void run() {
         while (true) {
-            synchronized (object){
+            synchronized (obj){
                 if (tickets > 0) {
                     // 为了模拟真实是售票情况，加入休眠线程
                     try {
-                        Thread.sleep(50);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }

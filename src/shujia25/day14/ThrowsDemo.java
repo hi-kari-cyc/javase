@@ -6,6 +6,7 @@ package shujia25.day14;
 
     方法中有错误，在方法定义时加上抛出异常，调用的时候用Alt+Enter 快捷键调用异常处理
     也可以在main方法中加上抛出异常，抛给Java虚拟机
+    但问题依旧没有解决，当出现问题时，后续的代码不会执行，因为JVM的默认处理方式就是程序停止报错
  */
 
 public class ThrowsDemo {

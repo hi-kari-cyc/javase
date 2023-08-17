@@ -24,6 +24,8 @@ public class SellTicketDemo4 {
 class Windows4 implements Runnable {
     // 加上static变量成为共享
     static int tickets = 100;
+
+    // 创建锁对象
     ReentrantLock lock = new ReentrantLock();
 
     @Override

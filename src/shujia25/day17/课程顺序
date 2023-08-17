@@ -1,21 +1,21 @@
-SellTicketDemo1
+SellTicketDemo1     用售票模拟线程不安全问题、使用Thread类创建线程
 
-SellTicketDemo2
+SellTicketDemo2     synchronized关键字解决线程不安全问题
 
-SellTicketDemo3
+SellTicketDemo3     同步方法和同步静态方法的锁对象
 
-SellTicketDemo4
+SellTicketDemo4     lock锁
 
-DieLockDemo
+DieLockDemo         死锁问题
 
-ProConDemo
+ProConDemo          生产者消费者模型(等待唤醒机制)
 
-ThreadGroupDemo
+ThreadGroupDemo     线程组
 
-ThreadPoolDemo
+ThreadPoolDemo      线程池
 
-NiMingThread
+NiMingThread        匿名内部类的方式实现多线程
 
-TimerDemo
+TimerDemo           定时器
 
 设计模式

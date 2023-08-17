@@ -34,7 +34,7 @@ public class LoginDemo {
         //创建配置文件对象
         Properties prop = new Properties();
         //调用方法加载自己的配置文件
-        //创建一个字符缓冲输流对象
+        //创建一个字符缓冲输入流对象
         BufferedReader br = new BufferedReader(new FileReader("src/shujia25/day16/File/userinfo.properties"));
         prop.load(br);
         //根据key获取配置文件中的value值
@@ -71,7 +71,6 @@ public class LoginDemo {
             System.out.println("新用户创建成功！！！");
 
         }
-
 
     }
 }

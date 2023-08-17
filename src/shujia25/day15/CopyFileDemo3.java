@@ -34,6 +34,7 @@ public class CopyFileDemo3 {
     }
 
 
+    // 一次读写一个字节
     public static void copy1() throws Exception {
         // 创建字节输入流
         FileInputStream fis = new FileInputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\Test.mp4");
@@ -52,10 +53,11 @@ public class CopyFileDemo3 {
         fis.close();
     }
 
+    // 一次读写一个字节
     public static void copy2() throws Exception {
-        // 创建缓冲字节输入流
+        // 创建字节缓冲输入流
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\Test.mp4"));
-        // 创建字节输出流
+        // 创建字节缓冲输出流
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\CopyMp42.mp4"));
 
         long start = System.currentTimeMillis();
@@ -71,6 +73,7 @@ public class CopyFileDemo3 {
         bis.close();
     }
 
+    // 一次读写一个字节数组
     public static void copy3() throws Exception {
         // 创建字节输入流
         FileInputStream fis = new FileInputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\Test.mp4");
@@ -79,7 +82,7 @@ public class CopyFileDemo3 {
 
         long start = System.currentTimeMillis();
         byte[] bytes = new byte[1024];
-        int length = fis.read();
+        int length = 0;
         while ((length = fis.read(bytes)) != -1) {
             fos.write(bytes, 0, length);
         }
@@ -90,10 +93,11 @@ public class CopyFileDemo3 {
         fis.close();
     }
 
+    // 一次读写一个字节数组
     public static void copy4() throws Exception {
-        // 创建字节输入流
+        // 创建字节缓冲输入流
         BufferedInputStream bis = new BufferedInputStream(new FileInputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\Test.mp4"));
-        // 创建字节输出流
+        // 创建字节缓冲输出流
         BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream("D:\\IDEA\\JavaProject\\java25\\src\\shujia25\\day15\\file\\CopyMp44.mp4"));
 
         long start = System.currentTimeMillis();

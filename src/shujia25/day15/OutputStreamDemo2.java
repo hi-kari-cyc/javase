@@ -10,7 +10,7 @@ import java.io.IOException;
  */
 public class OutputStreamDemo2 {
     public static void main(String[] args) {
-        FileOutputStream fos = null;
+        FileOutputStream fos = null;      // 作用域问题，如果在try中定义，在finally中无法使用
         try {
             // 创建字节输出流对象
             fos = new FileOutputStream("src/shujia25/day15/file/OutputStream3.txt", true);
@@ -23,7 +23,7 @@ public class OutputStreamDemo2 {
                 fos.write("\r\n".getBytes());
             }
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             // 释放资源

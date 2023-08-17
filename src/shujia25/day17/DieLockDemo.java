@@ -20,11 +20,10 @@ public class DieLockDemo {
 
         t1.start();
         t2.start();
-
     }
 }
 
-class MyThread extends Thread{
+class MyThread extends Thread {
     boolean flag = true;
 
     public MyThread(String name, boolean flag) {
@@ -34,27 +33,28 @@ class MyThread extends Thread{
 
     @Override
     public void run() {
-     if (flag){
-         synchronized (Locks.lock1){
-             System.out.println("if lock1");
-             synchronized (Locks.lock2){
-                 System.out.println("if lock2");
-             }
-         }
-     }else {
-         synchronized (Locks.lock2){
-             System.out.println("else lock2");
-             synchronized (Locks.lock1){
-                 System.out.println("else lock1");
-             }
-         }
-     }
+        if (flag) {
+            synchronized (Locks.lock1) {
+                System.out.println(Thread.currentThread().getName() + "获得lock1，等待lock2");
+                synchronized (Locks.lock2) {
+                    System.out.println("获得lock2");
+                }
+            }
+        } else {
+            synchronized (Locks.lock2) {
+                System.out.println(Thread.currentThread().getName() + "获得lock2，等待lock1");
+                synchronized (Locks.lock1) {
+                    System.out.println("获得lock1");
+                }
+            }
+        }
     }
 }
 
 // 定义一个工具类
-class Locks{
-    private Locks(){}
+class Locks {
+    private Locks() {
+    }
 
     // 定义两把锁
     public static final Lock lock1 = new ReentrantLock();

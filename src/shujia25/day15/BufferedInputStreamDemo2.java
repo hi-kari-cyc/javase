@@ -3,6 +3,10 @@ package shujia25.day15;
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 
+/*
+        字节流读汉字不能一个字节一个字节读
+        由于字节流操作中文不是特别方便，所以，java就提供了转换流(处理流)
+ */
 public class BufferedInputStreamDemo2 {
     public static void main(String[] args) throws Exception {
         // 创建一个字节缓冲出入流对象

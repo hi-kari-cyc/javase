@@ -19,6 +19,7 @@ public class BufferedReaderDemo {
         System.out.println(s2);
 
         // 因为不知道一个文件中有多少行，所以采用while循环
+        // 包含行的内容的字符串，不包括任何行终止字符，如果已达到流的末尾，则为null
         String s;
         while ((s = br.readLine())!=null){
             System.out.println(s);

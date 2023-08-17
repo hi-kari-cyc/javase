@@ -14,6 +14,14 @@ package shujia25.day15;
                 字符输入流：
                 字符输出流：
 
+        根据流的使用位置和数据源的不同，I/O 流还可以划分为节点流和处理流：
+            节点流：
+                节点流直接连接到数据源或目标，是最底层的流，用于直接读写数据。
+                FileInputStream 和 FileOutputStream：文件输入输出流，用于读写文件数据。
+            处理流：
+                BufferedReader 和 BufferedWriter：字符缓冲流，提供了缓冲功能，加速字符输入输出。
+                InputStreamReader 和 OutputStreamWriter：字符流与字节流的桥接，用于处理字符编码。
+
         注意：所有对文件操作的对象，在程序的最后都要释放或者关闭连接
 
         FileOutputStream的构造方法：
