@@ -12,6 +12,6 @@ TCPDemo3
 
 TCPDemo4
 
-ReflexDemo
+ReflexDemo          放射的介绍、类的Class文件对象的三种方式
 
-ConstructorDemo
+ConstructorDemo     通过反射获取构造方法并使用

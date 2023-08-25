@@ -12,6 +12,8 @@ import java.util.List;
     1、必须要一个接口
     2、接口中只能存在一个抽象方法，且类型可以自动推断
 
+
+    lambda表达式代替匿名内部类
  */
 
 public class StaffDemo4 {

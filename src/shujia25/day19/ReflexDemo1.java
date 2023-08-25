@@ -43,7 +43,7 @@ public class ReflexDemo1 {
         }
         System.out.println("------------------------------------------------");
 
-        //如果要给一个通过反射获取的成员变量进行赋值的话，就必须要告诉它是哪一个对象的成员变量
+        // 如果要给一个通过反射获取的成员变量进行赋值的话，就必须要告诉它是哪一个对象的成员变量
         // 创建一个对象，先获取构造方法，再创建
         Constructor<?> c1 = aClass.getDeclaredConstructor();
         Object o = c1.newInstance();

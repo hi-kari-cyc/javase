@@ -47,6 +47,7 @@ public class ReflexDemo2 {
         //方法的调用需要告诉是调用的哪一个对象中的方法
         //如果要给一个通过反射获取的成员变量进行赋值的话，就必须要告诉它是哪一个对象的成员变量
         Constructor<?> c1 = aClass.getDeclaredConstructor();
+        // 今后最好在使用前设置为暴力访问
         c1.setAccessible(true);
         Object o = c1.newInstance();
         System.out.println(o);

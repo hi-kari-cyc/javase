@@ -2,11 +2,12 @@ package shujia25.day18;
 
 /*
     通过反射获取构造方法并使用
-    类：
-        构造方法：Constructor
-        成员变量：Field
-        成员方法：Method
 
+    Java中提供了一个类用来描述成员变量  Field
+    Java中提供了一个类用来描述构造方法  Constructor
+    Java中提供了一个类用来描述成员方法  Method
+
+    在反射中Java把成员变量、构造方法、成员方法分别看做成是一个独立的对象
 
         获取构造方法
             getConstructors
@@ -49,6 +50,7 @@ public class ConstructorDemo {
         for (Constructor<?> declaredConstructor : dc2) {
             System.out.println(declaredConstructor);
         }
+        System.out.println("----------------------------------------");
 
         //获取构造方法的目的是实例化
         //T newInstance(Object... initargs)
